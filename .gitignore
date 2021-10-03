@@ -1,0 +1,16 @@
+# Java files
+*.class
+
+# Package Files #
+out/
+target/
+test-output/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Idea
+.idea/
+*.iml
