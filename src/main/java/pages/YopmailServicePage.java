@@ -17,19 +17,19 @@ public class YopmailServicePage extends BasePage {
     private final Logger LOGGER = LogManager.getLogger();
 
     @FindBy(xpath = "//a[@href='email-generator' and @class='hlink']")
-    WebElement mailGenerationButton;
+    private WebElement mailGenerationButton;
     @FindBy(xpath = "//div[@id='egen']")
-    WebElement generatedMailTab;
+    private WebElement generatedMailTab;
     @FindBy(xpath = "//button[@onclick='egengo();']")
-    WebElement mailboxButton;
+    private WebElement mailboxButton;
     @FindBy(xpath = "//h3[contains (text(), 'USD')]")
-    WebElement currentPrice;
+    private WebElement currentPrice;
     @FindBy(id = "ifmail")
-    WebElement mailFrame;
+    private WebElement mailFrame;
     @FindBy(xpath = "//div[@id='nbmail']")
-    WebElement mailCounter;
+    private WebElement mailCounter;
     @FindBy(xpath = "//button[@id='refresh']")
-    WebElement refreshMailboxButton;
+    private WebElement refreshMailboxButton;
 
     public YopmailServicePage() {
         PageFactory.initElements(driver, this);

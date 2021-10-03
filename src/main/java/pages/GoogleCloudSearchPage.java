@@ -18,9 +18,9 @@ public class GoogleCloudSearchPage extends BasePage {
     private final Logger LOGGER = LogManager.getLogger();
 
     @FindBy(xpath = "//*[@class='devsite-search-title']")
-    WebElement resultsPageTitle;
+    private WebElement resultsPageTitle;
     @FindBy(xpath = "//*[contains(@class,'gsc-thumbnail-inside') or contains(@class,'gsc-result')]//a[contains (., 'Google Cloud Platform Pricing Calculator')]")
-    WebElement resultDemanded;
+    private WebElement resultDemanded;
 
 
     public GoogleCloudSearchPage() {

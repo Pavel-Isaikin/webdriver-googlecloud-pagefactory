@@ -14,7 +14,7 @@ public class GoogleCloudPage extends BasePage {
     private final Logger LOGGER = LogManager.getLogger();
 
     @FindBy(xpath = "//*[@name='q']")
-    WebElement searchButton;
+    private WebElement searchButton;
 
     public GoogleCloudPage() {
         PageFactory.initElements(driver, this);

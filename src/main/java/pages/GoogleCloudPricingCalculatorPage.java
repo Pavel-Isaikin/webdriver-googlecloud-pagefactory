@@ -22,52 +22,52 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     private static final String COMMON_DROPDOWN_OPTION_PATTERN = "//md-option[@class='ng-scope md-ink-ripple' and @value='%s']";
 
     @FindBy(xpath = "//md-select [@placeholder='Number of GPUs']/md-select-value[starts-with(@id,'select_value_label_')]")
-    WebElement GPUNumberDropdown;
+    private WebElement GPUNumberDropdown;
     @FindBy(xpath = "//md-option[@ng-repeat='item in listingCtrl.supportedGpuNumbers[listingCtrl.computeServer.gpuType]' and @value='1']")
-    WebElement GPUNumberChoice;
+    private WebElement GPUNumberChoice;
     @FindBy(xpath = "//md-select [@placeholder='Local SSD']/md-select-value[starts-with(@id,'select_value_label_')]")
-    WebElement SSDDropdown;
+    private WebElement SSDDropdown;
     @FindBy(xpath = "//md-option[@ng-repeat='item in listingCtrl.dynamicSsd.computeServer' and @value='2']")
-    WebElement SSDChoice;
+    private WebElement SSDChoice;
     @FindBy(xpath = "//md-select [@placeholder='Datacenter location']/md-select-value[starts-with(@id,'select_value_label_')]")
-    WebElement regionDropdown;
+    private WebElement regionDropdown;
     @FindBy(xpath = "//md-option[@ng-repeat='item in listingCtrl.fullRegionList | filter:listingCtrl.inputRegionText.computeServer' and @value='europe-west3']")
-    WebElement regionChoice;
+    private WebElement regionChoice;
     @FindBy(xpath = "//md-select [@placeholder='Committed usage']/md-select-value[starts-with(@id,'select_value_label_')]")
-    WebElement commitmentTermDropdown;
+    private WebElement commitmentTermDropdown;
     @FindBy(xpath = "//md-option[@id='select_option_106']")
-    WebElement commitmentTermChoice;
+    private WebElement commitmentTermChoice;
     @FindBy(xpath = "//iframe[@allow='clipboard-write https://cloud-dot-devsite-v2-prod.appspot.com']")
-    WebElement outerFrame;
+    private WebElement outerFrame;
     @FindBy(id = "myFrame")
-    WebElement innerFrame;
+    private WebElement innerFrame;
     @FindBy(xpath = "//*[@id='input_71']")
-    WebElement instancesNumberField;
+    private WebElement instancesNumberField;
     @FindBy(xpath = "//*[@aria-label='Add to Estimate']")
-    WebElement confirmButton;
+    private WebElement confirmButton;
     @FindBy(xpath = "//*[@ng-model='listingCtrl.soleTenant.addGPUs']")
-    WebElement GPUCheckboxArea;
+    private WebElement GPUCheckboxArea;
     @FindBy(xpath = "//*[@aria-label='Add GPUs']")
-    WebElement GPUCheckbox;
+    private WebElement GPUCheckbox;
     @FindBy(xpath = "//button[@id='email_quote']")
-    WebElement eMailButton;
+    private WebElement eMailButton;
     @FindBy(xpath = "//*[@aria-label='Send Email']")
-    WebElement sendEMailButton;
+    private WebElement sendEMailButton;
     @FindBy(xpath = "//input[@ng-model='emailQuote.user.email']")
-    WebElement eMailAddressField;
+    private WebElement eMailAddressField;
 
     @FindBy(xpath = "//*[@class='md-1-line md-no-proxy ng-scope' and @ng-if='item.items.editHook && item.items.editHook.initialInputs.class']")
-    WebElement chosenVMClass;
+    private WebElement chosenVMClass;
     @FindBy(xpath = "//*[@class='md-list-item-text ng-binding cpc-cart-multiline flex' and contains(., 'n1')]")
-    WebElement chosenInstanceType;
+    private WebElement chosenInstanceType;
     @FindBy(xpath = "//div[@class='md-list-item-text ng-binding' and contains (., 'Frankfurt')]")
-    WebElement chosenRegion;
+    private WebElement chosenRegion;
     @FindBy(xpath = "//md-list-item[@class='md-1-line md-no-proxy ng-scope']/div[@class='md-list-item-text ng-binding cpc-cart-multiline flex']")
-    WebElement chosenSSD;
+    private WebElement chosenSSD;
     @FindBy(xpath = "//md-list-item[@ng-if='item.items.termText && item.items.termText.length != 0']/div[@class='md-list-item-text ng-binding']")
-    WebElement chosenCommitmentTerm;
+    private WebElement chosenCommitmentTerm;
     @FindBy(xpath = "//h2[@class='md-title']/b[@class='ng-binding']")
-    WebElement calculatedPrice;
+    private WebElement calculatedPrice;
 
     public GoogleCloudPricingCalculatorPage() {
         PageFactory.initElements(driver, this);
