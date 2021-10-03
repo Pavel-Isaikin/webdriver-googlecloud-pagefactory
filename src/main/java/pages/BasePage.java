@@ -1,11 +1,15 @@
 package pages;
 
 import driver.DriverOrigin;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +28,16 @@ public abstract class BasePage {
             js = (JavascriptExecutor) driver;
         } catch (Exception e) {
             System.out.println("Driver issue!");
+        }
+    }
+
+    public void captureScreenShot() {
+        String fileName = new Date().toString().replace(":", "_").replace(" ", "_");
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(src, new File("target/screenshots/failed_" + fileName + ".png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -55,10 +69,10 @@ public abstract class BasePage {
     }
 
     public BasePage fillIn(WebElement element, String textToFillIn) {
-        WebElement typer = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT))
+        WebElement typeIn = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT))
                 .until(ExpectedConditions.visibilityOf(element));
         clickTo(element);
-        typer.sendKeys(textToFillIn);
+        typeIn.sendKeys(textToFillIn);
         return this;
     }
 }

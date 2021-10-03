@@ -79,7 +79,9 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     }
 
     public void changeFrames() {
+        scrollToView(outerFrame);
         new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT)).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(outerFrame));
+        scrollToView(innerFrame);
         new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT)).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(innerFrame));
     }
 
@@ -141,9 +143,6 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
         LOGGER.info("Send mail to generated email address\n");
     }
 
-    public void closeChatBot() {
-        clickTo(driver.findElement(By.xpath("//*[@xmlns='http://www.w3.org/2000/svg']")));
-    }
 
     public boolean checkIfRegionIsCorrect() {
         String checker = chosenRegion.getText();

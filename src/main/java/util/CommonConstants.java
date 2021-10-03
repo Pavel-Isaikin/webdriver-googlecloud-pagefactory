@@ -12,3 +12,4 @@ public final class CommonConstants {
     public final static int TIMEOUT = 5;
     public final static String PRICE_TO_COMPARE = "1,083.33";
 }
+
