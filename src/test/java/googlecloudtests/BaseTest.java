@@ -8,9 +8,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import pages.BasePage;
-//import util.ScreenshotMaker;
 
-public class BaseTest extends BasePage {
+public class BaseTest extends BasePage{
 
     private final Logger LOGGER = LogManager.getLogger();
 
