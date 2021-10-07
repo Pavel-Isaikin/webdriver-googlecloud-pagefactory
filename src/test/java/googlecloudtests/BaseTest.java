@@ -18,12 +18,13 @@ public class BaseTest extends BasePage{
         LOGGER.info("- - -TEST STARTED- - -");
     }
 
+
     @AfterMethod
     public void failedTeardown(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             captureScreenShot();
+            DriverOrigin.getDriverOrigin().killDriver();
         }
-        DriverOrigin.getDriverOrigin().killDriver();
     }
 
     @AfterSuite(alwaysRun = true)

@@ -15,7 +15,7 @@ import java.util.Properties;
 public class DriverOrigin {
     private static DriverOrigin driverOrigin = null;
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
 
     private DriverOrigin() {
@@ -61,5 +61,6 @@ public class DriverOrigin {
 
     public void killDriver() {
         driver.quit();
+        driver = null;
     }
 }

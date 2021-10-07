@@ -44,7 +44,7 @@ public class YopmailServicePage extends BasePage {
     public void generateTemporaryEMail() {
         driver.switchTo().window(tabs.get(1));
         clickTo(mailGenerationButton);
-        LOGGER.info("Generate new email address");
+        LOGGER.info("Generate new email address on YopMail");
     }
 
     public void copyGeneratedEMailLink() {
