@@ -24,6 +24,7 @@ public class BaseTest extends BasePage{
         if (ITestResult.FAILURE == result.getStatus()) {
             captureScreenShot();
             DriverOrigin.getDriverOrigin().killDriver();
+            LOGGER.error("- - - -TEST WILL FAIL- - - -\n\n");
         }
         LOGGER.info("- - - -TEST suite ENDED- - - -\n\n");
 
