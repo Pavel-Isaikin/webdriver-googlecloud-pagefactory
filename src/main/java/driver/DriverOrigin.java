@@ -11,8 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-
 public class DriverOrigin {
+
     private static DriverOrigin driverOrigin = null;
 
     private WebDriver driver;
@@ -20,30 +20,38 @@ public class DriverOrigin {
 
     private DriverOrigin() {
 
-        File browserOptions = new File("src/main/resources/driverOption.properties");
-        FileInputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(browserOptions);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        Properties prop = new Properties();
-        try {
-            prop.load(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String browser = prop.getProperty("browser");
-        if (browser.equalsIgnoreCase("chrome")) {
+//        File browserOptions = new File("src/main/resources/driverOption.properties");
+//        FileInputStream inputStream = null;
+//        try {
+//            inputStream = new FileInputStream(browserOptions);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        Properties prop = new Properties();
+//        try {
+//            prop.load(inputStream);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        String browser = System.getProperty("browser");
+        if (browser != null) {
+            switch (browser) {
+                case "chrome" -> {
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    System.out.println("USING CHROME");
+                }
+                case "firefox" -> {
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    System.out.println("USING FIREFOX");
+                }
+            }
+        } else {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
+            System.out.println("USING CHROME as default");
         }
-        else if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        }
-
-
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
     }

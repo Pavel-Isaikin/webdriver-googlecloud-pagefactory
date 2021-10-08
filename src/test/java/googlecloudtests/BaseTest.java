@@ -25,6 +25,8 @@ public class BaseTest extends BasePage{
             captureScreenShot();
             DriverOrigin.getDriverOrigin().killDriver();
         }
+        LOGGER.info("- - - -TEST suite ENDED- - - -\n\n");
+
     }
 
     @AfterSuite(alwaysRun = true)
