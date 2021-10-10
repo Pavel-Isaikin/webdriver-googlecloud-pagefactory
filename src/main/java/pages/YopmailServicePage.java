@@ -47,7 +47,7 @@ public class YopmailServicePage extends BasePage {
         LOGGER.info("Generate new email address on YopMail");
     }
 
-    public void copyGeneratedEMailLink() {
+    public void copyGeneratedEmailAddress() {
         GoogleCloudPricingCalculatorPage.newMail = generatedMailTab.getText();
         driver.switchTo().window(tabs.get(0));
     }
@@ -72,6 +72,10 @@ public class YopmailServicePage extends BasePage {
     public boolean checkIfMailedPriceIsCorrect() {
         String checker = currentPrice.getText();
         LOGGER.info("Check price in mail: " + checker);
-        return (checker.contains(PRICE_TO_COMPARE));
+        return checker.contains(PRICE_TO_COMPARE);
+    }
+
+    public boolean checkIfMailReceived() {
+        return mailCounter.getText().contains("0");
     }
 }

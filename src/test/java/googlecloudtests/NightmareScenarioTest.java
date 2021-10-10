@@ -8,18 +8,19 @@ import pages.GoogleCloudSearchPage;
 import pages.YopmailServicePage;
 import steps.ComplexSteps;
 
-public class CloudTest extends BaseTest {
+public class NightmareScenarioTest extends BaseTest {
 
     private final GoogleCloudPage homePage = new GoogleCloudPage();
     private final GoogleCloudSearchPage searchResultsPage = new GoogleCloudSearchPage();
     private final GoogleCloudPricingCalculatorPage pricingCalculatorPage = new GoogleCloudPricingCalculatorPage();
     private final YopmailServicePage mailServicePage = new YopmailServicePage();
     private final ComplexSteps complexStep = new ComplexSteps();
+    private final SoftAssert softAssert = new SoftAssert();
 
     @Test
     public void googleCloudPricingCalculatorTest() {
 
-        SoftAssert softAssert = new SoftAssert();
+
 
         homePage.goToHomePage();
         complexStep.searchForCalculatorStep();

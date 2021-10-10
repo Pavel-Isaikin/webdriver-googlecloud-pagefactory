@@ -133,13 +133,24 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
         clickTo(eMailButton);
     }
 
-    public void fillInMyEmailField() {
+    public void pasteGeneratedEmailAddress() {
         LOGGER.info("temporary email gained: " + newMail);
         clickTo(eMailAddressField).fillIn(eMailAddressField, newMail);
     }
 
-    public void sendMailToMyEmailAddress() {
+    public void sendMailToPastedEmailAddress() {
+//        scrollToView(sendEMailButton);
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         clickTo(sendEMailButton);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         LOGGER.info("Send mail to generated email address\n");
     }
 

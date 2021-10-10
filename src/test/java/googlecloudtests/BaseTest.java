@@ -15,7 +15,7 @@ public class BaseTest extends BasePage{
 
     @BeforeSuite(alwaysRun = true)
     public void onStartLog() {
-        LOGGER.info("- - -TEST STARTED- - -");
+        LOGGER.info("- - -TEST STARTED- - -\n");
     }
 
 
@@ -26,7 +26,7 @@ public class BaseTest extends BasePage{
             DriverOrigin.getDriverOrigin().killDriver();
             LOGGER.error("- - - -TEST WILL FAIL- - - -\n\n");
         }
-        LOGGER.info("- - - -TEST suite ENDED- - - -\n\n");
+        LOGGER.info("- - - -TEST suite ENDED- - - -\n");
 
     }
 

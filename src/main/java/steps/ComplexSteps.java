@@ -12,7 +12,7 @@ public class ComplexSteps {
 
     public void searchForCalculatorStep() {
         googleCloudMainPage.goToSearchField();
-        googleCloudMainPage.pasteSearchingQuery();
+        googleCloudMainPage.pasteSearchQuery();
     }
 
     public void fillInCalculatorFormStep() {
@@ -31,14 +31,14 @@ public class ComplexSteps {
 
     public void getTemporaryEmailAddressStep() {
         mailServicePage.generateTemporaryEMail();
-        mailServicePage.copyGeneratedEMailLink();
+        mailServicePage.copyGeneratedEmailAddress();
     }
 
     public void sendCalculationsAsEmailStep() {
         pricingCalculatorPage.changeFrames();
         pricingCalculatorPage.clickToGetResultsAsMail();
-        pricingCalculatorPage.fillInMyEmailField();
-        pricingCalculatorPage.sendMailToMyEmailAddress();
+        pricingCalculatorPage.pasteGeneratedEmailAddress();
+        pricingCalculatorPage.sendMailToPastedEmailAddress();
     }
 
     public void getCalculationsEmailStep() {

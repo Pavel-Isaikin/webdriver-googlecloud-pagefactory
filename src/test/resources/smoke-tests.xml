@@ -3,7 +3,7 @@
 <suite name="smokeSuite" verbose="1">
     <test name="smokeTests">
         <classes>
-            <class name="googlecloudtests.TestingTest"/>
+            <class name="googlecloudtests.SmokeTest"/>
         </classes>
     </test>
 </suite>
