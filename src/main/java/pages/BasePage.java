@@ -75,4 +75,18 @@ public abstract class BasePage {
         typeIn.sendKeys(textToFillIn);
         return this;
     }
+
+    public WebElement getShadowEle(WebElement element) {
+        return (WebElement) (js.executeScript("return arguments[0].shadowRoot", element));
+    }
+
+    public void shadowClick(WebElement baseEle, String shadowCSS) {
+        //find base element
+        //get shadow root element under base one
+        WebElement shadowArea = getShadowEle(baseEle);
+        //find shadowed element by CSS and click
+        WebElement shadowEle = shadowArea.findElement(By.cssSelector(shadowCSS));
+        shadowEle.click();
+    }
+
 }

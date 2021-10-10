@@ -55,6 +55,10 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     private WebElement sendEMailButton;
     @FindBy(xpath = "//input[@ng-model='emailQuote.user.email']")
     private WebElement eMailAddressField;
+    @FindBy(xpath = "//cloudx-chat[@bubble-text='Hi there \uD83D\uDC4B Have questions about our pricing?']")
+    private WebElement cloudChatBase;
+//    @FindBy(css = ".close")
+//    private WebElement cloudChatCloseButton;
 
     @FindBy(xpath = "//*[@class='md-1-line md-no-proxy ng-scope' and @ng-if='item.items.editHook && item.items.editHook.initialInputs.class']")
     private WebElement chosenVMClass;
@@ -152,6 +156,10 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
             e.printStackTrace();
         }
         LOGGER.info("Send mail to generated email address\n");
+    }
+
+    public void killChatbot() {
+        shadowClick(cloudChatBase, ".close");
     }
 
 
