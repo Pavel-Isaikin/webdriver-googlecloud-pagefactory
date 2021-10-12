@@ -33,15 +33,15 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     private WebElement regionDropdown;
     @FindBy(xpath = "//md-option[@ng-repeat='item in listingCtrl.fullRegionList | filter:listingCtrl.inputRegionText.computeServer' and @value='europe-west3']")
     private WebElement regionChoice;
-    @FindBy(xpath = "//md-select [@placeholder='Committed usage']/md-select-value[starts-with(@id,'select_value_label_')]")
+    @FindBy(xpath = "//md-select [@placeholder='Committed usage' and @ng-disabled='listingCtrl.isCudDisabled']/md-select-value[starts-with(@id,'select_value_label_')]")
     private WebElement commitmentTermDropdown;
-    @FindBy(xpath = "//md-option[@id='select_option_106']")
+    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']/md-select-menu/md-content/md-option [@ng-value='1']")
     private WebElement commitmentTermChoice;
     @FindBy(xpath = "//iframe[@allow='clipboard-write https://cloud-dot-devsite-v2-prod.appspot.com']")
     private WebElement outerFrame;
     @FindBy(id = "myFrame")
     private WebElement innerFrame;
-    @FindBy(xpath = "//*[@id='input_71']")
+    @FindBy(xpath = "//input[@ng-model='listingCtrl.computeServer.quantity']")
     private WebElement instancesNumberField;
     @FindBy(xpath = "//*[@aria-label='Add to Estimate']")
     private WebElement confirmButton;
