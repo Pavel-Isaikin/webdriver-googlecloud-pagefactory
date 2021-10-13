@@ -20,8 +20,6 @@ public class NightmareScenarioTest extends BaseTest {
     @Test
     public void googleCloudPricingCalculatorTest() {
 
-
-
         homePage.goToHomePage();
         complexStep.searchForCalculatorStep();
         softAssert.assertTrue(searchResultsPage.checkIfIsResultsPage(), "Not on results page!");

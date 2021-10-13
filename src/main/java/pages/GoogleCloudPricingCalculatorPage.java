@@ -39,7 +39,7 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     private WebElement commitmentTermChoice;
     @FindBy(xpath = "//iframe[@allow='clipboard-write https://cloud-dot-devsite-v2-prod.appspot.com']")
     private WebElement outerFrame;
-    @FindBy(id = "myFrame")
+    @FindBy(id = "myFram")
     private WebElement innerFrame;
     @FindBy(xpath = "//input[@ng-model='listingCtrl.computeServer.quantity']")
     private WebElement instancesNumberField;

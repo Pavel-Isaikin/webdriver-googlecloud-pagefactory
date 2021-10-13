@@ -6,14 +6,12 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverOrigin {
 
     private static DriverOrigin driverOrigin = null;
-
     private WebDriver driver;
-    private final Logger LOGGER = LogManager.getLogger();
+    private final static Logger LOGGER = LogManager.getLogger();
 
 
     private DriverOrigin() {
@@ -25,11 +23,6 @@ public class DriverOrigin {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     LOGGER.info("USING CHROME");
-                }
-                case "firefox" -> {
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    LOGGER.info("USING FIREFOX");
                 }
                 case "edge" -> {
                     WebDriverManager.edgedriver().setup();
@@ -60,9 +53,5 @@ public class DriverOrigin {
     public void killDriver() {
         driver.quit();
         driver = null;
-    }
-
-    public void closeTab() {
-        driver.close();
     }
 }

@@ -15,7 +15,7 @@ public class BaseTest extends BasePage{
 
     @BeforeSuite(alwaysRun = true)
     public void onStartLog() {
-        LOGGER.info("- - -TEST STARTED- - -\n");
+        LOGGER.info("- - -TEST SUITE STARTED- - -\n");
     }
 
 
