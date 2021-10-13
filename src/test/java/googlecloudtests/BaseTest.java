@@ -27,7 +27,6 @@ public class BaseTest extends BasePage{
             LOGGER.error("- - - -TEST WILL FAIL- - - -\n\n");
         }
         LOGGER.info("- - - -TEST suite ENDED- - - -\n");
-
     }
 
     @AfterSuite(alwaysRun = true)

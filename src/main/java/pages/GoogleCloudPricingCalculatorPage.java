@@ -33,15 +33,15 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     private WebElement regionDropdown;
     @FindBy(xpath = "//md-option[@ng-repeat='item in listingCtrl.fullRegionList | filter:listingCtrl.inputRegionText.computeServer' and @value='europe-west3']")
     private WebElement regionChoice;
-    @FindBy(xpath = "//md-select [@placeholder='Committed usage']/md-select-value[starts-with(@id,'select_value_label_')]")
+    @FindBy(xpath = "//md-select [@placeholder='Committed usage' and @ng-disabled='listingCtrl.isCudDisabled']/md-select-value[starts-with(@id,'select_value_label_')]")
     private WebElement commitmentTermDropdown;
-    @FindBy(xpath = "//md-option[@id='select_option_106']")
+    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']/md-select-menu/md-content/md-option [@ng-value='1']")
     private WebElement commitmentTermChoice;
     @FindBy(xpath = "//iframe[@allow='clipboard-write https://cloud-dot-devsite-v2-prod.appspot.com']")
     private WebElement outerFrame;
     @FindBy(id = "myFrame")
     private WebElement innerFrame;
-    @FindBy(xpath = "//*[@id='input_71']")
+    @FindBy(xpath = "//input[@ng-model='listingCtrl.computeServer.quantity']")
     private WebElement instancesNumberField;
     @FindBy(xpath = "//*[@aria-label='Add to Estimate']")
     private WebElement confirmButton;
@@ -55,11 +55,6 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     private WebElement sendEMailButton;
     @FindBy(xpath = "//input[@ng-model='emailQuote.user.email']")
     private WebElement eMailAddressField;
-    @FindBy(xpath = "//cloudx-chat[@bubble-text='Hi there \uD83D\uDC4B Have questions about our pricing?']")
-    private WebElement cloudChatBase;
-//    @FindBy(css = ".close")
-//    private WebElement cloudChatCloseButton;
-
     @FindBy(xpath = "//*[@class='md-1-line md-no-proxy ng-scope' and @ng-if='item.items.editHook && item.items.editHook.initialInputs.class']")
     private WebElement chosenVMClass;
     @FindBy(xpath = "//*[@class='md-list-item-text ng-binding cpc-cart-multiline flex' and contains(., 'n1')]")
@@ -143,12 +138,6 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     }
 
     public void sendMailToPastedEmailAddress() {
-//        scrollToView(sendEMailButton);
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         clickTo(sendEMailButton);
         try {
             Thread.sleep(2000);
@@ -156,10 +145,6 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
             e.printStackTrace();
         }
         LOGGER.info("Send mail to generated email address\n");
-    }
-
-    public void killChatbot() {
-        shadowClick(cloudChatBase, ".close");
     }
 
 
@@ -195,6 +180,6 @@ public class GoogleCloudPricingCalculatorPage extends BasePage {
     public boolean checkIfPaymentPerMonthIsCorrect() {
         String checker = calculatedPrice.getText();
         LOGGER.info("Check final price: " + checker + "\n");
-        return (checker.contains("USD 1,083.33"));
+        return (checker.contains("USD 1,085.25"));
     }
 }

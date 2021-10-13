@@ -61,4 +61,8 @@ public class DriverOrigin {
         driver.quit();
         driver = null;
     }
+
+    public void closeTab() {
+        driver.close();
+    }
 }

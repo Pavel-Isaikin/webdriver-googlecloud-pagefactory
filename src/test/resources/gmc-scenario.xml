@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="allSuite" verbose="1">
+<suite name="scenarioSuite" verbose="1">
     <test name="scenarioTests">
         <classes>
             <class name="googlecloudtests.NightmareScenarioTest"/>

@@ -10,6 +10,6 @@ public final class CommonConstants {
     public final static String MAILPAGEURL = "https://yopmail.com/";
     public final static String NUMBER_OF_INSTANCES = "4";
     public final static int TIMEOUT = 5;
-    public final static String PRICE_TO_COMPARE = "1,083.33";
+    public final static String PRICE_TO_COMPARE = "1,085.25";
 }
 

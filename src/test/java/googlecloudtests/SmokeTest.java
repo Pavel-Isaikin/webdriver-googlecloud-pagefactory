@@ -17,20 +17,20 @@ public class SmokeTest extends BaseTest {
     private final ComplexSteps complexStep = new ComplexSteps();
     private final SoftAssert softAssert = new SoftAssert();
 
-    @Test
+    @Test(priority = 1)
     public void canNavigateToGoogleCloudPlatformPageTest() {
         homePage.goToHomePage();
         softAssert.assertTrue(homePage.checkIfIsGoogleCloudPage(), "Not on Google CLoud Platform page!");
     }
 
-    @Test
+    @Test(priority = 2)
     public void canNavigateToPricingCalculatorPageBySearchTest() {
         homePage.goToHomePage();
         complexStep.searchForCalculatorStep();
         softAssert.assertTrue(searchResultsPage.checkIfIsResultsPage(), "Not on results page!");
     }
 
-    @Test
+    @Test(priority = 3)
     public void canChooseAndConfirmDemandedParametersTest() {
         homePage.goToHomePage();
         complexStep.searchForCalculatorStep();
@@ -43,16 +43,16 @@ public class SmokeTest extends BaseTest {
         softAssert.assertTrue(pricingCalculatorPage.checkIfLocalSSDIsCorrect(), "SSD type is not correct!");
     }
 
-    @Test
+    @Test(priority = 4)
     public void canCheckPriceAfterCommitmentConfirmationTest() {
         homePage.goToHomePage();
         complexStep.searchForCalculatorStep();
         searchResultsPage.goToCalculatorPage();
         complexStep.fillInCalculatorFormStep();
-        softAssert.assertTrue(pricingCalculatorPage.checkIfPaymentPerMonthIsCorrect(), "Monthly payment is not USD 1,083.33!");
+        softAssert.assertTrue(pricingCalculatorPage.checkIfPaymentPerMonthIsCorrect(), "Monthly payment is not USD 1,085.25!");
     }
 
-    @Test
+    @Test(priority = 5)
     public void canSendAndReceiveCommitmentLetterTest() {
         homePage.goToHomePage();
         complexStep.searchForCalculatorStep();

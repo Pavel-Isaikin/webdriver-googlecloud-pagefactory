@@ -33,13 +33,13 @@ public class NightmareScenarioTest extends BaseTest {
         softAssert.assertTrue(pricingCalculatorPage.checkIfVMClassIsCorrect(), "VM type is not correct!");
         softAssert.assertTrue(pricingCalculatorPage.checkIfCommitmentTypeIsCorrect(), "Commitment is not for 1 year!");
         softAssert.assertTrue(pricingCalculatorPage.checkIfLocalSSDIsCorrect(), "SSD type is not correct!");
-        softAssert.assertTrue(pricingCalculatorPage.checkIfPaymentPerMonthIsCorrect(), "Monthly payment is not USD 1,083.33!");
+        softAssert.assertTrue(pricingCalculatorPage.checkIfPaymentPerMonthIsCorrect(), "Monthly payment is not USD 1,085.25!");
 
         mailServicePage.goToMailServicePage();
         complexStep.getTemporaryEmailAddressStep();
         complexStep.sendCalculationsAsEmailStep();
         complexStep.getCalculationsEmailStep();
-        softAssert.assertTrue(mailServicePage.checkIfMailedPriceIsCorrect(), "Price in mail is not USD 1,083.33!");
+        softAssert.assertTrue(mailServicePage.checkIfMailedPriceIsCorrect(), "Price in mail is not USD 1,085.25!");
 
         softAssert.assertAll();
     }
