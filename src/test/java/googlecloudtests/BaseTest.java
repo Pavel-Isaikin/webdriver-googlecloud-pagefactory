@@ -26,12 +26,12 @@ public class BaseTest extends BasePage{
             DriverOrigin.getDriverOrigin().killDriver();
             LOGGER.error("- - - -TEST WILL FAIL- - - -\n\n");
         }
-        LOGGER.info("- - - -TEST suite ENDED- - - -\n");
+        LOGGER.info("- - - -TEST ENDED- - - -\n");
     }
 
     @AfterSuite(alwaysRun = true)
     public void teardown() {
         DriverOrigin.getDriverOrigin().killDriver();
-        LOGGER.info("- - - -TEST ENDED- - - -\n\n");
+        LOGGER.info("- - - -TEST SUITE ENDED- - - -\n\n");
     }
 }
